@@ -1,0 +1,12 @@
+.site-page-header {
+  border: 1px solid rgb(235, 237, 240);
+  width: 1508px;
+  height:40px;
+}
+.footer{
+  height: 20px;
+  width:500px;
+  margin: auto;
+  position: relative;
+  left: 50px;
+}

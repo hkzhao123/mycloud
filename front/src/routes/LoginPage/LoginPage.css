@@ -1,0 +1,25 @@
+.back{
+  background-image: url("../../assets/design.jpg") ;
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  background-origin: border-box;
+  height: 837px;
+}
+.loginForm{
+  background-color: #f7f7f7;
+  width:400px;
+  height:300px;
+  margin: auto;
+  position: relative;
+  top: 200px;
+}
+.loginButton{
+  position:relative;
+  left:-50px;
+}
+.loginText{
+  margin:auto;
+  position: relative;
+  left:140px;
+  font-size: 30px;
+}

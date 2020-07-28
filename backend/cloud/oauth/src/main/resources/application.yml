@@ -1,0 +1,23 @@
+server:
+  port: 9603
+spring:
+  profiles:
+    active: dev
+  application:
+    name: oauth2-auth
+  cloud:
+    nacos:
+      discovery:
+        server-addr: localhost:8848
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+  redis:
+    database: 0
+    port: 6379
+    host: 119.23.230.239
+    password: hkzhao123
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"

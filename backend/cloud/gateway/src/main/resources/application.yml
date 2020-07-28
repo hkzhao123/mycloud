@@ -1,0 +1,61 @@
+server:
+  port: 9201
+
+spring:
+  cloud:
+    nacos:
+      discovery:
+        server-addr: localhost:8848
+    gateway:
+      routes:
+        - id: user-service
+          uri: lb://knife4j-user
+          predicates:
+            - Path=/user-service/**
+          filters:
+            - StripPrefix=1
+        - id: order-service
+          uri: lb://knife4j-order
+          predicates:
+            - Path=/order-service/**
+          filters:
+            - StripPrefix=1
+        - id: auth-route
+          uri: lb://oauth2-auth
+          predicates:
+            - Path=/auth/**
+          filters:
+            - StripPrefix=1
+      discovery:
+        locator:
+          enabled: true
+          lower-case-service-id: true
+  profiles:
+    active: dev
+
+  application:
+    name: knife4j-gateway
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          jwk-set-uri: "http://localhost:9603/rsa/publicKey"
+  redis:
+    host: 119.23.230.239
+    port: 6379
+    database: 0
+    password: hkzhao123
+
+secure:
+  ignore:
+    urls:
+      - "/actuator/**"
+      - "/auth/oauth/token"
+      - "/doc.html#/**"
+      - "/webjars/**"
+      - "/doc.html"
+      - "/swagger-resources/configuration/security"
+      - "/swagger-resources/configuration/ui"
+      - "/swagger-resources"
+      - "/user-service/v2/api-docs"
+      - "/order-service/v2/api-docs"
